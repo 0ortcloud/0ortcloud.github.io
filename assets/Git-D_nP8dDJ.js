@@ -1,0 +1,1 @@
+import{C as n}from"./CommandInfo-CEiWveb1.js";import{_ as t,c as e,r as a,o as m}from"./index-TODATx92.js";const s={name:"Git",components:{CommandInfo:n}};function i(r,c,p,_,f,d){const o=a("CommandInfo");return m(),e(o,{title:"Git Commands",command:"git init",explain:"Initialize a new Git repository"})}const u=t(s,[["render",i]]);export{u as default};

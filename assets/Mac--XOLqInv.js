@@ -1,0 +1,1 @@
+import{C as n}from"./CommandInfo-CEiWveb1.js";import{_ as e,c as a,r as c,o as t}from"./index-TODATx92.js";const s={name:"Mac",components:{CommandInfo:n}};function r(m,p,_,f,d,i){const o=c("CommandInfo");return t(),a(o)}const u=e(s,[["render",r]]);export{u as default};
