@@ -18,13 +18,25 @@ export default {
   emits: ['update:modelValue'],
   computed: {
     language: {
-      get() { return this.modelValue },
-      set(val) { this.$emit('update:modelValue', val) }
+      get() {
+        return this.modelValue
+      },
+      set(val) {
+        this.$emit('update:modelValue', val)
+      }
     }
   },
   methods: {
     changeLanguage() {
-      this.$emit('update:modelValue', this.language)
+      this.$i18n.locale = this.language
+      localStorage.setItem('lang', this.language)
+    }
+  },
+  mounted() {
+    const saved = localStorage.getItem('lang')
+    if (saved) {
+      this.$emit('update:modelValue', saved)
+      this.$i18n.locale = saved
     }
   }
 }

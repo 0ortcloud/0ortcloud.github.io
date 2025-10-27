@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="headerImg">
-      <a href="/"><img src="../assets/commandHubLogo.png" alt="Logo"/></a>
+      <a @click="goToMain"><img src="../assets/commandHubLogo.png" alt="Logo"/></a>
     </div>
 
     <div class="headerButtons">
@@ -12,9 +12,8 @@
     </div>
 
     <div class="headerController">
-      <div>라이트 모드</div>
+      <LightModeSwitch />
       <LanguageChanger v-model="language"></LanguageChanger>
-      <div>{{ language }}</div>
     </div>
   </div>
 </template>
@@ -22,25 +21,37 @@
 <script>
 import HeaderButton from '../components/HeaderButton.vue';
 import LanguageChanger from '@/components/LanguageChanger.vue';
+import LightModeSwitch from '@/components/LightModeSwitch.vue';
 
 export default {
   name: 'Header',
   components: {
     HeaderButton,
-    LanguageChanger
+    LanguageChanger,
+    LightModeSwitch
+  },
+  computed: {
+    headerMenu() {
+      return [
+        this.$t('header.mac'),
+        this.$t('header.windows'),
+        this.$t('header.git'),
+        this.$t('header.other')
+      ]
+    }
   },
   data() {
     return {
-      headerMenu: ['Mac', 'Windows', 'Git', 'Other'],
       language: 'ja'
     }
   },
   methods: {
-  goToMac() { this.$router.push('/mac'); },
-  goToWindows() { this.$router.push('/windows'); },
-  goToGit() { this.$router.push('/git'); },
-  goToOther() { this.$router.push('/other'); }
-}
+    goToMain() { this.$router.push('/'); },
+    goToMac() { this.$router.push('/mac'); },
+    goToWindows() { this.$router.push('/windows'); },
+    goToGit() { this.$router.push('/git'); },
+    goToOther() { this.$router.push('/other'); }
+  }
 }
 </script>
 
@@ -55,7 +66,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10;
   box-sizing: border-box;
 }
 
